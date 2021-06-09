@@ -13,6 +13,9 @@ class Post(models.Model):
     votes = models.IntegerField(null=True, default=0)
     community = models.ForeignKey(Community, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.post_name
+
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -20,3 +23,6 @@ class Comment(models.Model):
     created_time = models.DateTimeField(auto_now_add=True)
     votes = models.IntegerField(null=True, default=0)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.comment_data

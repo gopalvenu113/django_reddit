@@ -130,3 +130,5 @@ dmypy.json
 
 # migration_files
 *migrations/
+
+*vscode/
