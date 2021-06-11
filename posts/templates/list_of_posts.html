@@ -1,15 +1,24 @@
 
 <div>
     {% for post in posts %}
-    <div>
-        <p>{{ post.votes }}</p>
-        <p> {{ post.community.name }} </p>
-        <p> posted by </p>
-        <p>{{post.user.username}}</p>
-        <p>{{ post.created_time }}</p>
-    </div>
-    <div>
-        <h3>{{post.post_name}}</h3>
-    </div>
+        <a href="{{ post.id }}" style="color: black;">
+            <div style="border: 2px solid gray; margin-left: 10rem; margin-top: 1rem; margin-bottom: 1rem;margin-right: 10rem;">
+                <div style="display: flex; padding: 1rem;">
+                    <p style="margin-right: 1rem;">{{ post.votes }}</p>
+                    <p style="margin-right: 1rem;"><strong> {{ post.community.name }} </strong></p>
+                    <p style="margin-right: 1rem;"> posted by </p>
+                    <p style="margin-right: 1rem;">{{post.user.username}}</p>
+                    <p style="margin-right: 1rem;">{{ post.created_time }}</p>
+                </div>
+                <div style="padding: 1rem;">
+                    <h3>{{post.post_name}}</h3>
+                </div>
+                {% if is_retrieve %}
+                    <div style="padding-left: 1rem;">
+                        <h4>{{post.post_data}}</h4>
+                    </div>
+                {% endif %}
+            </div>
+        </a>
     {% endfor %}
 </div>
